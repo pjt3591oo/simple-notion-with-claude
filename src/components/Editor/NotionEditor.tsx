@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react'
-import { Slate, Editable, withReact } from 'slate-react'
+import { Slate, Editable, withReact, ReactEditor } from 'slate-react'
 import { createEditor, Descendant, Transforms } from 'slate'
 import { Range, Editor } from 'slate'
 import * as Y from 'yjs'
@@ -12,6 +12,7 @@ import {
   generateUserName,
 } from '../../lib/slate-yjs-config'
 import { Users } from 'lucide-react'
+import { CustomEditor } from '../../types/blocks'
 
 const initialValue: Descendant[] = [
   {
@@ -190,10 +191,10 @@ export const NotionEditor = () => {
 
     if (selection && Range.isCollapsed(selection)) {
       const [start] = Range.edges(selection)
-      const wordBefore = Editor.before(editor, start, { unit: 'word' })
-      const before = wordBefore && Editor.before(editor, wordBefore)
-      const beforeRange = before && Editor.range(editor, before, start)
-      const beforeText = beforeRange && Editor.string(editor, beforeRange)
+      const wordBefore = Editor.before(editor as CustomEditor, start, { unit: 'word' })
+      const before = wordBefore && Editor.before(editor as CustomEditor, wordBefore)
+      const beforeRange = before && Editor.range(editor as CustomEditor, before, start)
+      const beforeText = beforeRange && Editor.string(editor as CustomEditor, beforeRange)
       const beforeMatch = beforeText && beforeText.match(/^\/(\w*)$/)
 
       if (beforeMatch) {
@@ -237,7 +238,7 @@ export const NotionEditor = () => {
       </div>
 
       <div className="editor-content">
-        <Slate editor={editor} initialValue={initialValue} onChange={handleChange}>
+        <Slate editor={editor as unknown as ReactEditor} initialValue={initialValue} onChange={handleChange}>
           <Editable
             renderElement={renderElement}
             renderLeaf={renderLeaf}
