@@ -1,0 +1,169 @@
+@import './NotionEditor.css';
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background: #f7f7f5;
+  padding: 0;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.status {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.status-indicator {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.status-indicator.connected {
+  background: rgba(76, 175, 80, 0.3);
+}
+
+.status-indicator.disconnected {
+  background: rgba(244, 67, 54, 0.3);
+}
+
+.user-info {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.info-panel {
+  background: #f8f9fa;
+  padding: 20px 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.info-panel h3 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.users-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.user-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.empty-message {
+  color: #666;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.editor-wrapper {
+  padding: 30px;
+}
+
+.editor {
+  width: 100%;
+  min-height: 400px;
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  resize: vertical;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  transition: border-color 0.3s ease;
+}
+
+.editor:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.info-box {
+  background: #f0f4ff;
+  padding: 25px 30px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.info-box h3 {
+  margin-bottom: 15px;
+  color: #667eea;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.info-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-box li {
+  padding: 8px 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.info-box li strong {
+  color: #667eea;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+
+  .header {
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .editor-wrapper {
+    padding: 20px;
+  }
+
+  .editor {
+    min-height: 300px;
+    font-size: 14px;
+  }
+
+  .info-panel,
+  .info-box {
+    padding: 20px;
+  }
+}

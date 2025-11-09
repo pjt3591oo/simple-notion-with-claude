@@ -1,0 +1,42 @@
+{
+  "name": "crdt-yjs-collaborative-editor",
+  "version": "1.0.0",
+  "description": "CRDT를 활용한 실시간 협업 텍스트 에디터 (Yjs + y-websocket + React + TypeScript)",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "vite",
+    "server": "tsx watch server/index.ts",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "yjs": "^13.6.18",
+    "y-websocket": "^2.0.4",
+    "lib0": "^0.2.97",
+    "slate": "^0.103.0",
+    "slate-react": "^0.108.0",
+    "slate-history": "^0.109.0",
+    "@slate-yjs/core": "^1.0.2",
+    "@slate-yjs/react": "^1.0.2",
+    "@dnd-kit/core": "^6.1.0",
+    "@dnd-kit/sortable": "^8.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "lucide-react": "^0.344.0",
+    "nanoid": "^5.0.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/ws": "^8.5.10",
+    "@vitejs/plugin-react": "^4.3.0",
+    "concurrently": "^8.2.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "ws": "^8.17.0",
+    "y-websocket": "^2.0.4"
+  }
+}
